@@ -22,7 +22,7 @@ async function displayQuotesForPage() {
         quoteElement.innerHTML = `
             <div class="card rounded-2">
                 <div class="card-body">
-                    <p class="card-text">${quote}</p>
+                    <p class="card-text">" ${quote} "</p>
                 </div>
             </div>
         `;

@@ -1,5 +1,5 @@
 let currentPage = 1;
-let pageSize = 15; // Adjust the number of quotes per page
+let pageSize = 12; // Adjust the number of quotes per page
 let quotes = [];
 
 // Function to fetch quotes from the text file for a specific page
@@ -22,7 +22,7 @@ async function displayQuotesForPage() {
     quoteElement.innerHTML = `
             <div class="card rounded-2">
                 <div class="card-body">
-                    <p class="card-text">" ${quote} "</p>
+                    <p class="card-text font-monospace">" ${quote} "</p>
                 </div>
             </div>
         `;
@@ -52,7 +52,7 @@ async function displayQuotesForPage() {
     quoteElement.innerHTML = `
             <div class="card rounded-2">
                 <div class="card-body">
-                    <p class="card-text">" ${quote} "</p>
+                    <p class="card-text font-monospace">" ${quote} "</p>
                 </div>
             </div>
         `;

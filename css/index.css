@@ -1,6 +1,18 @@
+body {
+  background-color: #d6dac8;
+}
+
+.container {
+  background-color: #9cafaa;
+  border-radius: 20px;
+  box-shadow: 5px 20px 50px #222831;
+  margin: 5rem auto;
+}
+
 .card {
   /* ease | ease-in | ease-out | linear */
   transition: transform ease-in-out 0.3s;
+  background-color: #fbf3d5;
 }
 
 .card:hover {
@@ -13,5 +25,26 @@
 
 .modal-content {
   border-radius: 20px;
-  box-shadow: 5px 20px 50px #000000;
+  background-color: #9cafaa;
+  color: #222831;
+  box-shadow: 5px 20px 50px #222831;
+}
+
+.btn {
+  background-color: #D6DAC8;
+  margin: 2rem;  
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #9cafaa;
+  border: 1px solid #9cafaa;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
 }

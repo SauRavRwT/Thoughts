@@ -6,29 +6,26 @@ _Pagination -_
 
     let currentPage = 1;
     let pageSize = 12;
-    let quotes = [];
 
 _Change File Path -_
 
-    const response = await fetch("Your_file.pdf");
+    const response = await fetch("Your_file.txt");
 
 _Function to display quotes for the current page -_
 
     async function displayQuotesForPage() {
-    const quotesForPage = await fetchQuotesForPage(currentPage);
-    const quoteGrid = document.getElementById("quoteGrid");
-    quoteGrid.innerHTML = "";
-
-    quotesForPage.forEach((quote) => {
-    const quoteElement = createQuoteElement(quote);
-    quoteGrid.appendChild(quoteElement);
-     });
-    }
+      const { quotesForPage, totalQuotes } = await fetchQuotesForPage(currentPage);
+      if (quotesForPage.length === 0 && currentPage > 1) {
+        // If no quotes are available and not on the first page, go back to page 1
+        currentPage = 1;
+        await displayQuotesForPage();
+        return;
+      }
 
 _Function to create a quote element -_
 
     quoteElement.innerHTML = `
-    <div class="card rounded-2">
+    <div class="card rounded-4">
       <div class="card-body">
         <p class="card-text font-monospace">"${quote}"</p>
       </div>
@@ -38,17 +35,22 @@ _Function to create a quote element -_
 _Function to display modal with the clicked quote -_
 
     function displayModal(quote) {
-    const modalBody = document.getElementById("quoteModalBody");
-    modalBody.textContent = quote;
-    const modal = new bootstrap.Modal(document.getElementById("quoteModal"));
-    modal.show();
+      const modalBody = document.getElementById("quoteModalBody");
+      modalBody.textContent = quote;
+      const modal = new bootstrap.Modal(document.getElementById("quoteModal"));
+      modal.show();
     }
 
 _Function to load the next page of quotes -_
 
     async function loadNextPage() {
-    currentPage++;
-    await displayQuotesForPage();
+      currentPage++;
+      const { quotesForPage } = await fetchQuotesForPage(currentPage);
+      if (quotesForPage.length === 0) {
+        // Reset to page 1 if no quotes are available
+        currentPage = 1;
+      }
+      await displayQuotesForPage();
     }
 
 ---

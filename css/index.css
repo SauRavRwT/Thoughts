@@ -3,20 +3,23 @@ body {
 }
 
 .container {
-  background-color: #9cafaa;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
   border-radius: 20px;
-  box-shadow: 5px 20px 50px #222831;
-  margin: 5rem auto;
 }
 
 .card {
+  border-radius: 10px;
+  background-color: #fbf3d5;
+  box-shadow: 0 4px 6px #0000001a;
   /* ease | ease-in | ease-out | linear */
   transition: transform ease-in-out 0.3s;
-  background-color: #fbf3d5;
 }
 
 .card:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
 .modal {
@@ -31,8 +34,9 @@ body {
 }
 
 .btn {
-  background-color: #D6DAC8;
-  margin: 2rem;  
+  margin: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
 }
 
 /* Scrollbar */
